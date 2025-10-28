@@ -26,7 +26,7 @@
 	"author": "Dreamsicle",
 	"license": "MIT",
 	"scripts": {
-		"test": "stylelint \"tests/**/*.css\""
+		"test": "stylelint -f verbose \"tests/**/*.css\""
 	},
 	"engines": {
 		"node": ">=18.12.0"
