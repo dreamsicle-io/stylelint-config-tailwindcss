@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-block-no-duplicate-properties */
 /* stylelint-disable declaration-block-no-shorthand-property-overrides */
 /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 /* stylelint-disable shorthand-property-no-redundant-values */
@@ -7,6 +8,7 @@
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#import-directive
  */
+
 @import "tailwindcss";
 
 /*
@@ -14,8 +16,9 @@
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#theme-directive
  */
+
 @theme {
-	--font-display: "Satoshi", "sans-serif";
+	--font-display: "Satoshi", sans-serif;
 	--breakpoint-3xl: 120rem;
 	--color-avocado-100: oklch(0.99 0 0);
 	--color-avocado-200: oklch(0.98 0.04 113.22);
@@ -25,6 +28,10 @@
 	--color-avocado-600: oklch(0.53 0.12 118.34);
 	--ease-fluid: cubic-bezier(0.3, 0, 0, 1);
 	--ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@theme inline {
+	--font-display: "Satoshi", sans-serif;
 }
 
 /*
@@ -39,6 +46,7 @@
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#reference-directive
  */
+
 @reference "../path/to/file";
 
 /*
@@ -46,6 +54,7 @@
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#utility-directive
  */
+
 @utility tab-4 {
 	tab-size: 4;
 }
@@ -55,11 +64,12 @@
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#variant-directive
  */
+
 .variant {
-	background: white;
+	background-color: white;
 
 	@variant dark {
-		background: black;
+		background-color: black;
 	}
 }
 
@@ -68,6 +78,7 @@
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#custom-variant-directive
  */
+
 @custom-variant theme-midnight {
 	&:where([data-theme="midnight"] *) {
 		@slot;
@@ -83,7 +94,9 @@
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#apply-directive
  */
+
 .apply-directive {
+		@apply relative;
 		@apply relative block;
 }
 
@@ -92,15 +105,20 @@
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#alpha-function
  */
+
 .alpha-function {
 	color: --alpha(black / 50%);
 	accent-color: --alpha(black / 50%);
 	caret-color: --alpha(black / 50%);
 	text-decoration-color: --alpha(black / 50%);
 	text-emphasis-color: --alpha(black / 50%);
-	background-color: --alpha(black / 50%);
 	background: --alpha(black / 50%);
+	background-color: --alpha(black / 50%);
 	border-color: --alpha(black / 50%);
+	border-top-color: --alpha(black / 50%);
+	border-bottom-color: --alpha(black / 50%);
+	border-left-color: --alpha(black / 50%);
+	border-right-color: --alpha(black / 50%);
 	border-block-color: --alpha(black / 50%);
 	border-block-start-color: --alpha(black / 50%);
 	border-block-end-color: --alpha(black / 50%);
@@ -116,11 +134,53 @@
 	lighting-color: --alpha(black / 50%);
 }
 
+.alpha-function-in-shorthand {
+	background: --alpha(black / 50%) url("bg.jpg");
+	background: --alpha(black / 50%) url("bg.jpg") center;
+	background: --alpha(black / 50%) url("bg.jpg") 10px 20px;
+	background: --alpha(black / 50%) url("bg.jpg") center / cover;
+	background: --alpha(black / 50%) url("bg.jpg") 50% 50% / 100px 200px;
+	background: --alpha(black / 50%) url("bg.jpg") no-repeat;
+	background: --alpha(black / 50%) url("bg.jpg") fixed;
+	background: --alpha(black / 50%) url("bg.jpg") padding-box content-box;
+	background: url("bg.jpg") no-repeat center / cover --alpha(red / 50%);
+	background: url("bg.jpg") center / cover no-repeat fixed padding-box content-box --alpha(red / 50%);
+	background: url("bg.jpg") repeat, linear-gradient(to bottom, #ffffff, #cccccc), --alpha(red / 50%);
+	background: url("bg.jpg") repeat fixed, radial-gradient(circle, #ffffff, #000000), --alpha(red / 50%);
+	border: 1px solid --alpha(black / 50%);
+	border: solid --alpha(black / 50%);
+	border-color: --alpha(black / 50%) --alpha(blue / 50%);
+	border-color: --alpha(black / 50%) --alpha(blue / 50%) --alpha(red / 50%) --alpha(green / 50%);
+	border-color: black --alpha(blue / 50%) red --alpha(green / 50%);
+	border-color: black blue red --alpha(green / 50%);
+	border-block-color: --alpha(black / 50%) red;
+	border-block-color: red --alpha(black / 50%);
+	border-inline-color: --alpha(black / 50%) red;
+	border-inline-color: red --alpha(black / 50%);
+	outline: 1px solid --alpha(black / 50%);
+	outline: solid --alpha(black / 50%);
+	column-rule: 1px solid --alpha(black / 50%);
+	column-rule: solid --alpha(black / 50%);
+	text-emphasis: filled --alpha(black /50%);
+	text-emphasis: filled double-circle --alpha(black /50%);
+	text-emphasis: "*" --alpha(black / 50%);
+}
+
+.alpha-functions-in-filter-functions {
+	backdrop-filter: drop-shadow(1px 2px --alpha(black / 50%));
+	backdrop-filter: drop-shadow(1px 2px 6px --alpha(black / 50%));
+}
+
+.alpha-functions-in-vars {
+	--test-alpha-var: --alpha(black / 50%);
+}
+
 /*
  * Functions / --spacing()
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#spacing-function
  */
+
 .spacing-function {
 	width: --spacing(4);
 	min-width: --spacing(4);
@@ -172,11 +232,14 @@
 	border-right-width: --spacing(4);
 	border-bottom-width: --spacing(4);
 	border-left-width: --spacing(4);
+	border-block-width: --spacing(4);
 	border-block-start-width: --spacing(4);
 	border-block-end-width: --spacing(4);
+	border-inline-width: --spacing(4);
 	border-inline-start-width: --spacing(4);
 	border-inline-end-width: --spacing(4);
 	outline-width: --spacing(4);
+	outline-offset: --spacing(4);
 	column-width: --spacing(4);
 	flex-basis: --spacing(4);
 	gap: --spacing(4);
@@ -208,4 +271,166 @@
 	scroll-margin-inline: --spacing(4);
 	scroll-margin-inline-start: --spacing(4);
 	scroll-margin-inline-end: --spacing(4);
+	text-decoration-thickness: --spacing(4);
+	column-rule-width: --spacing(4);
+	background-position-y: --spacing(4);
+	background-position-x: --spacing(4);
+	background-size: --spacing(4);
 }
+
+.spacing-function-in-shorthand {
+	background: black url("bg.jpg") --spacing(2) --spacing(4);
+	background: --alpha(black / 50%) url("bg.jpg") --spacing(2) --spacing(4) / --spacing(2) --spacing(4);
+	gap: --spacing(4);
+	gap: --spacing(4) --spacing(2);
+	gap: 4px --spacing(2);
+	gap: --spacing(4) 2px;
+	padding: --spacing(4);
+	padding: --spacing(4) --spacing(2);
+	padding: --spacing(4) --spacing(2) --spacing(2);
+	padding: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	padding: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	padding: 4px 1% --spacing(2);
+	padding: 4px 1% --spacing(2) --spacing(2);
+	padding: 4px --spacing(2) --spacing(2) --spacing(2);
+	padding: --spacing(2) --spacing(2) --spacing(2) 4px;
+	padding-block: --spacing(4);
+	padding-block: --spacing(4) --spacing(2);
+	padding-block: 4px --spacing(2);
+	padding-block: --spacing(4) 2px;
+	padding-inline: --spacing(4);
+	padding-inline: --spacing(4) --spacing(2);
+	padding-inline: 4px --spacing(2);
+	padding-inline: --spacing(4) 2px;
+	margin: --spacing(4);
+	margin: --spacing(4) --spacing(2);
+	margin: --spacing(4) --spacing(2) --spacing(2);
+	margin: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	margin: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	margin: 4px 1% --spacing(2);
+	margin: 4px 1% --spacing(2) --spacing(2);
+	margin: 4px --spacing(2) --spacing(2) --spacing(2);
+	margin: --spacing(2) --spacing(2) --spacing(2) 4px;
+	margin-block: --spacing(4);
+	margin-block: --spacing(4) --spacing(2);
+	margin-block: 4px --spacing(2);
+	margin-block: --spacing(4) 2px;
+	margin-inline: --spacing(4);
+	margin-inline: --spacing(4) --spacing(2);
+	margin-inline: 4px --spacing(2);
+	margin-inline: --spacing(4) 2px;
+	inset: --spacing(4);
+	inset: --spacing(4) --spacing(2);
+	inset: --spacing(4) --spacing(2) --spacing(2);
+	inset: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	inset: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	inset: 4px 1% --spacing(2);
+	inset: 4px 1% --spacing(2) --spacing(2);
+	inset: 4px --spacing(2) --spacing(2) --spacing(2);
+	inset: --spacing(2) --spacing(2) --spacing(2) 4px;
+	inset-block: --spacing(4);
+	inset-block: --spacing(4) --spacing(2);
+	inset-block: 4px --spacing(2);
+	inset-block: --spacing(4) 2px;
+	inset-inline: --spacing(4);
+	inset-inline: --spacing(4) --spacing(2);
+	inset-inline: 4px --spacing(2);
+	inset-inline: --spacing(4) 2px;
+	border-width: --spacing(4);
+	border-width: --spacing(4) --spacing(2);
+	border-width: --spacing(4) --spacing(2) --spacing(2);
+	border-width: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	border-width: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	border-width: 4px 1vh --spacing(2);
+	border-width: 4px 1vh --spacing(2) --spacing(2);
+	border-width: 4px --spacing(2) --spacing(2) --spacing(2);
+	border-width: --spacing(2) --spacing(2) --spacing(2) 4px;
+	border-block-width: --spacing(4);
+	border-block-width: --spacing(4) --spacing(2);
+	border-block-width: 4px --spacing(2);
+	border-block-width: --spacing(4) 2px;
+	border-inline-width: --spacing(4);
+	border-inline-width: --spacing(4) --spacing(2);
+	border-inline-width: 4px --spacing(2);
+	border-inline-width: --spacing(4) 2px;
+	scroll-padding: --spacing(4);
+	scroll-padding: --spacing(4) --spacing(2);
+	scroll-padding: --spacing(4) --spacing(2) --spacing(2);
+	scroll-padding: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	scroll-padding: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	scroll-padding: 4px 1% --spacing(2);
+	scroll-padding: 4px 1% --spacing(2) --spacing(2);
+	scroll-padding: 4px --spacing(2) --spacing(2) --spacing(2);
+	scroll-padding: --spacing(2) --spacing(2) --spacing(2) 4px;
+	scroll-padding-block: --spacing(4);
+	scroll-padding-block: --spacing(4) --spacing(2);
+	scroll-padding-block: 4px --spacing(2);
+	scroll-padding-block: --spacing(4) 2px;
+	scroll-padding-inline: --spacing(4);
+	scroll-padding-inline: --spacing(4) --spacing(2);
+	scroll-padding-inline: 4px --spacing(2);
+	scroll-padding-inline: --spacing(4) 2px;
+	scroll-margin: --spacing(4);
+	scroll-margin: --spacing(4) --spacing(2);
+	scroll-margin: --spacing(4) --spacing(2) --spacing(2);
+	scroll-margin: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	scroll-margin: --spacing(4) --spacing(2) --spacing(2) --spacing(2);
+	scroll-margin: 4px 2vw --spacing(2);
+	scroll-margin: 4px 2vw --spacing(2) --spacing(2);
+	scroll-margin: 4px --spacing(2) --spacing(2) --spacing(2);
+	scroll-margin: --spacing(2) --spacing(2) --spacing(2) 4px;
+	scroll-margin-block: --spacing(4);
+	scroll-margin-block: --spacing(4) --spacing(2);
+	scroll-margin-block: 4px --spacing(2);
+	scroll-margin-block: --spacing(4) 2px;
+	scroll-margin-inline: --spacing(4);
+	scroll-margin-inline: --spacing(4) --spacing(2);
+	scroll-margin-inline: 4px --spacing(2);
+	scroll-margin-inline: --spacing(4) 2px;
+	background-position: 10px --spacing(4);
+	background-position: center --spacing(4);
+	background-position: --spacing(4) 50%;
+}
+
+.spacing-function-in-filter-functions {
+	backdrop-filter: blur(--spacing(2));
+	backdrop-filter: drop-shadow(--spacing(1) --spacing(2) black);
+	backdrop-filter: drop-shadow(--spacing(1) --spacing(2) --spacing(3) black);
+}
+
+.spacing-functions-in-vars {
+	--test-spacing-var: --spacing(2);
+}
+
+/*
+ * Function Combinations
+ *
+ * See: https://tailwindcss.com/docs/functions-and-directives#functions
+ */
+
+.spacing-and-alpha-functions-in-shorthand {
+	border: --spacing(2) solid --alpha(black / 50%);
+	border-top: --spacing(2) solid --alpha(black / 50%);
+	border-bottom: --spacing(2) solid --alpha(black / 50%);
+	border-left: --spacing(2) solid --alpha(black / 50%);
+	border-right: --spacing(2) solid --alpha(black / 50%);
+	border-inline: --spacing(2) solid --alpha(black / 50%);
+	border-inline-start: --spacing(2) solid --alpha(black / 50%);
+	border-inline-end: --spacing(2) solid --alpha(black / 50%);
+	border-block: --spacing(2) solid --alpha(black / 50%);
+	border-block-start: --spacing(2) solid --alpha(black / 50%);
+	border-block-end: --spacing(2) solid --alpha(black / 50%);
+	outline: --spacing(2) solid --alpha(black / 50%);
+	column-rule: --spacing(2) solid --alpha(black / 50%);
+	text-decoration: underline --spacing(2) solid --alpha(black / 50%);
+}
+
+.spacing-and-alpha-functions-in-filter-functions {
+	backdrop-filter: drop-shadow(--spacing(2) --spacing(2) --alpha(black / 50%));
+	backdrop-filter: drop-shadow(--spacing(2) --spacing(2) --spacing(2) --alpha(black / 50%));
+	backdrop-filter: drop-shadow(2px --spacing(2) --alpha(black / 50%));
+	backdrop-filter: drop-shadow(--spacing(2) 2px --spacing(2) --alpha(black / 50%));
+	backdrop-filter: drop-shadow(1vw --spacing(2) --alpha(black / 50%));
+	backdrop-filter: drop-shadow(1vw 2px --spacing(2) --alpha(black / 50%));
+}
+
