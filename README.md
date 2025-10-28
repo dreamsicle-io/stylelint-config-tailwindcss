@@ -15,12 +15,12 @@ npm install --save-dev @dreamsicle.io/stylelint-config-tailwindcss
  * @type {import("stylelint").Config}
  */
 const stylelintConfig = {
-    // ...
-    extends: [
-        "stylelint-config-standard",
-        "@dreamsicle.io/stylelint-config-tailwindcss",
-    ],
-    // ...
+		// ...
+		extends: [
+				"stylelint-config-standard",
+				"@dreamsicle.io/stylelint-config-tailwindcss",
+		],
+		// ...
 };
 
 export default stylelintConfig;

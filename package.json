@@ -1,41 +1,41 @@
 {
-  "name": "@dreamsicle.io/stylelint-config-tailwindcss",
-  "version": "1.0.0",
-  "description": "A stylelint configuration for Tailwind CSS projects.",
-  "main": "index.mjs",
-  "files": [
-    "package.json",
-    "index.mjs",
-    "README.md",
-    "LICENSE"
-  ],
-  "homepage": "https://github.com/dreamsicle-io/stylelint-config-tailwindcss",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dreamsicle-io/stylelint-config-tailwindcss.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dreamsicle-io/stylelint-config-tailwindcss/issues"
-  },
-  "keywords": [
-    "tailwind",
-    "tailwindcss",
-    "stylelint",
-    "stylelint-config"
-  ],
-  "author": "Dreamsicle",
-  "license": "MIT",
-  "scripts": {
-    "test": "stylelint \"tests/**/*.css\""
-  },
-  "engines": {
-    "node": ">=18.12.0"
-  },
-  "peerDependencies": {
-    "stylelint": "^16.25.0"
-  },
-  "devDependencies": {
-    "stylelint": "^16.25.0",
-    "stylelint-config-standard": "^39.0.1"
-  }
+	"name": "@dreamsicle.io/stylelint-config-tailwindcss",
+	"version": "1.0.0",
+	"description": "A stylelint configuration for Tailwind CSS projects.",
+	"main": "index.mjs",
+	"files": [
+		"package.json",
+		"index.mjs",
+		"README.md",
+		"LICENSE"
+	],
+	"homepage": "https://github.com/dreamsicle-io/stylelint-config-tailwindcss",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dreamsicle-io/stylelint-config-tailwindcss.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dreamsicle-io/stylelint-config-tailwindcss/issues"
+	},
+	"keywords": [
+		"tailwind",
+		"tailwindcss",
+		"stylelint",
+		"stylelint-config"
+	],
+	"author": "Dreamsicle",
+	"license": "MIT",
+	"scripts": {
+		"test": "stylelint \"tests/**/*.css\""
+	},
+	"engines": {
+		"node": ">=18.12.0"
+	},
+	"peerDependencies": {
+		"stylelint": "^16.25.0"
+	},
+	"devDependencies": {
+		"stylelint": "^16.25.0",
+		"stylelint-config-standard": "^39.0.1"
+	}
 }
