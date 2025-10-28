@@ -30,11 +30,11 @@ export default stylelintConfig;
 
 ## Known issues
 
-### @custom-variant inline syntax
+### `@custom-variant` inline syntax
 
-The `@custom-variant` directive can be used to create a custom variant, and can be written as a nested statement, or inline. Currently, it does not seem to be possible to represent this using Stylelint's language options. We recommend using the nested syntax.
+The [`@custom-variant` directive](https://tailwindcss.com/docs/adding-custom-styles#adding-custom-variants) can be used to create a custom variant, and can be written as a **nested statement**, or an **inline statement**. Currently, it does not seem to be possible to represent the **inline statement** using Stylelint's language options. We recommend using the **nested statement**.
 
-#### Supported `@custom-variant` syntax (nested)
+#### Nested `@custom-variant` syntax: _Supported_
 
 ```css
 @custom-variant theme-midnight {
@@ -44,11 +44,11 @@ The `@custom-variant` directive can be used to create a custom variant, and can 
 }
 ```
 
-#### Unsupported `@custom-variant` syntax (inline)
+#### Inline `@custom-variant` syntax: _Not supported_
 
 ```css
 /* stylelint-disable-next-line at-rule-prelude-no-invalid */
 @custom-variant theme-midnight (&:where([data-theme="midnight"] *));
 ```
 
-> **Note:** You may continue to use this syntax if you prefer, but you should use a `stylelint-disable` comment when using it.
+> **Note:** You may continue to use the inline statement if you prefer, but you should use a `/* stylelint-disable-next-line at-rule-prelude-no-invalid */` comment when using it.
