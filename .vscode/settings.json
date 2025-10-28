@@ -4,6 +4,9 @@
 	"files.associations": {
 		"*.css": "tailwindcss",
 	},
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
 	"editor.quickSuggestions": {
 		"strings": "on"
 	},
@@ -12,6 +15,10 @@
 		"tailwindcss",
 		"css"
 	],
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
 	"[css][tailwindcss]": {
 		"editor.codeActionsOnSave": {
 			"source.fixAll.stylelint": "explicit"

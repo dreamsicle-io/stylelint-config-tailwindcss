@@ -15,16 +15,16 @@
  * See: https://tailwindcss.com/docs/functions-and-directives#theme-directive
  */
 @theme {
-  --font-display: "Satoshi", "sans-serif";
-  --breakpoint-3xl: 120rem;
-  --color-avocado-100: oklch(0.99 0 0);
-  --color-avocado-200: oklch(0.98 0.04 113.22);
-  --color-avocado-300: oklch(0.94 0.11 115.03);
-  --color-avocado-400: oklch(0.92 0.19 114.08);
-  --color-avocado-500: oklch(0.84 0.18 117.33);
-  --color-avocado-600: oklch(0.53 0.12 118.34);
-  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
-  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+	--font-display: "Satoshi", "sans-serif";
+	--breakpoint-3xl: 120rem;
+	--color-avocado-100: oklch(0.99 0 0);
+	--color-avocado-200: oklch(0.98 0.04 113.22);
+	--color-avocado-300: oklch(0.94 0.11 115.03);
+	--color-avocado-400: oklch(0.92 0.19 114.08);
+	--color-avocado-500: oklch(0.84 0.18 117.33);
+	--color-avocado-600: oklch(0.53 0.12 118.34);
+	--ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+	--ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 }
 
 /*
@@ -47,7 +47,7 @@
  * See: https://tailwindcss.com/docs/functions-and-directives#utility-directive
  */
 @utility tab-4 {
-  tab-size: 4;
+	tab-size: 4;
 }
 
 /*
@@ -56,11 +56,11 @@
  * See: https://tailwindcss.com/docs/functions-and-directives#variant-directive
  */
 .variant {
-  background: white;
+	background: white;
 
-  @variant dark {
-    background: black;
-  }
+	@variant dark {
+		background: black;
+	}
 }
 
 /*
@@ -69,9 +69,9 @@
  * See: https://tailwindcss.com/docs/functions-and-directives#custom-variant-directive
  */
 @custom-variant theme-midnight {
-  &:where([data-theme="midnight"] *) {
-    @slot;
-  }
+	&:where([data-theme="midnight"] *) {
+		@slot;
+	}
 }
 
 /* TODO: Support this syntax. */
@@ -84,7 +84,7 @@
  * See: https://tailwindcss.com/docs/functions-and-directives#apply-directive
  */
 .apply-directive {
-    @apply relative block;
+		@apply relative block;
 }
 
 /*
@@ -93,27 +93,27 @@
  * See: https://tailwindcss.com/docs/functions-and-directives#alpha-function
  */
 .alpha-function {
-    color: --alpha(black / 50%);
-    accent-color: --alpha(black / 50%);
-    caret-color: --alpha(black / 50%);
-    text-decoration-color: --alpha(black / 50%);
-    text-emphasis-color: --alpha(black / 50%);
-    background-color: --alpha(black / 50%);
-    background: --alpha(black / 50%);
-    border-color: --alpha(black / 50%);
-    border-block-color: --alpha(black / 50%);
-    border-block-start-color: --alpha(black / 50%);
-    border-block-end-color: --alpha(black / 50%);
-    border-inline-color: --alpha(black / 50%);
-    border-inline-start-color: --alpha(black / 50%);
-    border-inline-end-color: --alpha(black / 50%);
-    outline-color: --alpha(black / 50%);
-    column-rule-color: --alpha(black / 50%);
-    fill: --alpha(black / 50%);
-    stroke: --alpha(black / 50%);
-    stop-color: --alpha(black / 50%);
-    flood-color: --alpha(black / 50%);
-    lighting-color: --alpha(black / 50%);
+	color: --alpha(black / 50%);
+	accent-color: --alpha(black / 50%);
+	caret-color: --alpha(black / 50%);
+	text-decoration-color: --alpha(black / 50%);
+	text-emphasis-color: --alpha(black / 50%);
+	background-color: --alpha(black / 50%);
+	background: --alpha(black / 50%);
+	border-color: --alpha(black / 50%);
+	border-block-color: --alpha(black / 50%);
+	border-block-start-color: --alpha(black / 50%);
+	border-block-end-color: --alpha(black / 50%);
+	border-inline-color: --alpha(black / 50%);
+	border-inline-start-color: --alpha(black / 50%);
+	border-inline-end-color: --alpha(black / 50%);
+	outline-color: --alpha(black / 50%);
+	column-rule-color: --alpha(black / 50%);
+	fill: --alpha(black / 50%);
+	stroke: --alpha(black / 50%);
+	stop-color: --alpha(black / 50%);
+	flood-color: --alpha(black / 50%);
+	lighting-color: --alpha(black / 50%);
 }
 
 /*
@@ -122,90 +122,90 @@
  * See: https://tailwindcss.com/docs/functions-and-directives#spacing-function
  */
 .spacing-function {
-    width: --spacing(4);
-    min-width: --spacing(4);
-    max-width: --spacing(4);
-    height: --spacing(4);
-    min-height: --spacing(4);
-    max-height: --spacing(4);
-    block-size: --spacing(4);
-    min-block-size: --spacing(4);
-    max-block-size: --spacing(4);
-    inline-size: --spacing(4);
-    min-inline-size: --spacing(4);
-    max-inline-size: --spacing(4);
-    top: --spacing(4);
-    right: --spacing(4);
-    bottom: --spacing(4);
-    left: --spacing(4);
-    inset: --spacing(4);
-    inset-block: --spacing(4);
-    inset-block-start: --spacing(4);
-    inset-block-end: --spacing(4);
-    inset-inline: --spacing(4);
-    inset-inline-start: --spacing(4);
-    inset-inline-end: --spacing(4);
-    margin: --spacing(4);
-    margin-top: --spacing(4);
-    margin-right: --spacing(4);
-    margin-bottom: --spacing(4);
-    margin-left: --spacing(4);
-    margin-block: --spacing(4);
-    margin-block-start: --spacing(4);
-    margin-block-end: --spacing(4);
-    margin-inline: --spacing(4);
-    margin-inline-start: --spacing(4);
-    margin-inline-end: --spacing(4);
-    padding: --spacing(4);
-    padding-top: --spacing(4);
-    padding-right: --spacing(4);
-    padding-bottom: --spacing(4);
-    padding-left: --spacing(4);
-    padding-block: --spacing(4);
-    padding-block-start: --spacing(4);
-    padding-block-end: --spacing(4);
-    padding-inline: --spacing(4);
-    padding-inline-start: --spacing(4);
-    padding-inline-end: --spacing(4);
-    border-width: --spacing(4);
-    border-top-width: --spacing(4);
-    border-right-width: --spacing(4);
-    border-bottom-width: --spacing(4);
-    border-left-width: --spacing(4);
-    border-block-start-width: --spacing(4);
-    border-block-end-width: --spacing(4);
-    border-inline-start-width: --spacing(4);
-    border-inline-end-width: --spacing(4);
-    outline-width: --spacing(4);
-    column-width: --spacing(4);
-    flex-basis: --spacing(4);
-    gap: --spacing(4);
-    row-gap: --spacing(4);
-    column-gap: --spacing(4);
-    letter-spacing: --spacing(4);
-    word-spacing: --spacing(4);
-    line-height: --spacing(4);
-    text-indent: --spacing(4);
-    scroll-padding: --spacing(4);
-    scroll-padding-top: --spacing(4);
-    scroll-padding-right: --spacing(4);
-    scroll-padding-bottom: --spacing(4);
-    scroll-padding-left: --spacing(4);
-    scroll-padding-block: --spacing(4);
-    scroll-padding-block-start: --spacing(4);
-    scroll-padding-block-end: --spacing(4);
-    scroll-padding-inline: --spacing(4);
-    scroll-padding-inline-start: --spacing(4);
-    scroll-padding-inline-end: --spacing(4);
-    scroll-margin: --spacing(4);
-    scroll-margin-top: --spacing(4);
-    scroll-margin-right: --spacing(4);
-    scroll-margin-bottom: --spacing(4);
-    scroll-margin-left: --spacing(4);
-    scroll-margin-block: --spacing(4);
-    scroll-margin-block-start: --spacing(4);
-    scroll-margin-block-end: --spacing(4);
-    scroll-margin-inline: --spacing(4);
-    scroll-margin-inline-start: --spacing(4);
-    scroll-margin-inline-end: --spacing(4);
+	width: --spacing(4);
+	min-width: --spacing(4);
+	max-width: --spacing(4);
+	height: --spacing(4);
+	min-height: --spacing(4);
+	max-height: --spacing(4);
+	block-size: --spacing(4);
+	min-block-size: --spacing(4);
+	max-block-size: --spacing(4);
+	inline-size: --spacing(4);
+	min-inline-size: --spacing(4);
+	max-inline-size: --spacing(4);
+	top: --spacing(4);
+	right: --spacing(4);
+	bottom: --spacing(4);
+	left: --spacing(4);
+	inset: --spacing(4);
+	inset-block: --spacing(4);
+	inset-block-start: --spacing(4);
+	inset-block-end: --spacing(4);
+	inset-inline: --spacing(4);
+	inset-inline-start: --spacing(4);
+	inset-inline-end: --spacing(4);
+	margin: --spacing(4);
+	margin-top: --spacing(4);
+	margin-right: --spacing(4);
+	margin-bottom: --spacing(4);
+	margin-left: --spacing(4);
+	margin-block: --spacing(4);
+	margin-block-start: --spacing(4);
+	margin-block-end: --spacing(4);
+	margin-inline: --spacing(4);
+	margin-inline-start: --spacing(4);
+	margin-inline-end: --spacing(4);
+	padding: --spacing(4);
+	padding-top: --spacing(4);
+	padding-right: --spacing(4);
+	padding-bottom: --spacing(4);
+	padding-left: --spacing(4);
+	padding-block: --spacing(4);
+	padding-block-start: --spacing(4);
+	padding-block-end: --spacing(4);
+	padding-inline: --spacing(4);
+	padding-inline-start: --spacing(4);
+	padding-inline-end: --spacing(4);
+	border-width: --spacing(4);
+	border-top-width: --spacing(4);
+	border-right-width: --spacing(4);
+	border-bottom-width: --spacing(4);
+	border-left-width: --spacing(4);
+	border-block-start-width: --spacing(4);
+	border-block-end-width: --spacing(4);
+	border-inline-start-width: --spacing(4);
+	border-inline-end-width: --spacing(4);
+	outline-width: --spacing(4);
+	column-width: --spacing(4);
+	flex-basis: --spacing(4);
+	gap: --spacing(4);
+	row-gap: --spacing(4);
+	column-gap: --spacing(4);
+	letter-spacing: --spacing(4);
+	word-spacing: --spacing(4);
+	line-height: --spacing(4);
+	text-indent: --spacing(4);
+	scroll-padding: --spacing(4);
+	scroll-padding-top: --spacing(4);
+	scroll-padding-right: --spacing(4);
+	scroll-padding-bottom: --spacing(4);
+	scroll-padding-left: --spacing(4);
+	scroll-padding-block: --spacing(4);
+	scroll-padding-block-start: --spacing(4);
+	scroll-padding-block-end: --spacing(4);
+	scroll-padding-inline: --spacing(4);
+	scroll-padding-inline-start: --spacing(4);
+	scroll-padding-inline-end: --spacing(4);
+	scroll-margin: --spacing(4);
+	scroll-margin-top: --spacing(4);
+	scroll-margin-right: --spacing(4);
+	scroll-margin-bottom: --spacing(4);
+	scroll-margin-left: --spacing(4);
+	scroll-margin-block: --spacing(4);
+	scroll-margin-block-start: --spacing(4);
+	scroll-margin-block-end: --spacing(4);
+	scroll-margin-inline: --spacing(4);
+	scroll-margin-inline-start: --spacing(4);
+	scroll-margin-inline-end: --spacing(4);
 }
