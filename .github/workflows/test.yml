@@ -1,0 +1,44 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    # Initialize the env variables. These get set after the repo is checked out
+    # because they depend on files in the repo.
+    env:
+      NODE_VERSION: ''
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
+      - name: Checkout Repo
+        id: checkout_repo
+        uses: actions/checkout@v4
+
+      # Sets the environment variables from the env.sh script.
+      - name: Set Environment Variables
+        id: set_env_vars
+        run: .github/workflows/scripts/env.sh
+
+      # Setup Node.
+      - name: Setup Node
+        id: setup_node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # Installs npm dependencies.
+      - name: Install
+        id: install
+        run: npm install
+
+      # Tests all files.
+      - name: Test
+        id: Test
+        run: npm test

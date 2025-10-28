@@ -1,0 +1,20 @@
+{
+	"files.insertFinalNewline": true,
+	"files.eol": "\n",
+	"files.associations": {
+		"*.css": "tailwindcss",
+	},
+	"editor.quickSuggestions": {
+		"strings": "on"
+	},
+	"stylelint.enable": true,
+	"stylelint.validate": [
+		"tailwindcss",
+		"css"
+	],
+	"[css][tailwindcss]": {
+		"editor.codeActionsOnSave": {
+			"source.fixAll.stylelint": "explicit"
+		}
+	}
+}
