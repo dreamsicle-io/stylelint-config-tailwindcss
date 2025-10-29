@@ -166,12 +166,15 @@
 	text-emphasis: "*" --alpha(black / 50%);
 }
 
-.alpha-functions-in-filter-functions {
+.alpha-function-in-functions {
 	backdrop-filter: drop-shadow(1px 2px --alpha(black / 50%));
 	backdrop-filter: drop-shadow(1px 2px 6px --alpha(black / 50%));
+	background-image: linear-gradient(to bottom, --alpha(black / 50%), --alpha(black / 50%));
+	background-image: radial-gradient(--alpha(black / 50%), --alpha(black / 50%));
+	background-image: radial-gradient(closest-side, --alpha(black / 50%), --alpha(black / 50%));
 }
 
-.alpha-functions-in-vars {
+.alpha-function-in-vars {
 	--test-alpha-var: --alpha(black / 50%);
 }
 
@@ -280,7 +283,7 @@
 
 .spacing-function-in-shorthand {
 	background: black url("bg.jpg") --spacing(2) --spacing(4);
-	background: --alpha(black / 50%) url("bg.jpg") --spacing(2) --spacing(4) / --spacing(2) --spacing(4);
+	background: black url("bg.jpg") --spacing(2) --spacing(4) / --spacing(2) --spacing(4);
 	gap: --spacing(4);
 	gap: --spacing(4) --spacing(2);
 	gap: 4px --spacing(2);
@@ -392,7 +395,10 @@
 	background-position: --spacing(4) 50%;
 }
 
-.spacing-function-in-filter-functions {
+.spacing-function-in-functions {
+	width: calc(--spacing(4) + --spacing(8));
+	height: calc(--spacing(4) + 4px);
+	max-height: calc(4px + (--spacing(2) * --spacing(4)));
 	backdrop-filter: blur(--spacing(2));
 	backdrop-filter: drop-shadow(--spacing(1) --spacing(2) black);
 	backdrop-filter: drop-shadow(--spacing(1) --spacing(2) --spacing(3) black);
@@ -425,7 +431,7 @@
 	text-decoration: underline --spacing(2) solid --alpha(black / 50%);
 }
 
-.spacing-and-alpha-functions-in-filter-functions {
+.spacing-and-alpha-functions-in-functions {
 	backdrop-filter: drop-shadow(--spacing(2) --spacing(2) --alpha(black / 50%));
 	backdrop-filter: drop-shadow(--spacing(2) --spacing(2) --spacing(2) --alpha(black / 50%));
 	backdrop-filter: drop-shadow(2px --spacing(2) --alpha(black / 50%));
