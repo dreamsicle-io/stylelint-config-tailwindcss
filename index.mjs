@@ -1,18 +1,49 @@
 
 /*
+ * Position helpers
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/CSS/position_value#formal_syntax
+ */
+
+const positionOne = "[ left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> | <--spacing()> ]";
+const positionTwo = "[ [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> | <--spacing()> ] [ top | center | bottom | y-start | y-end | <length-percentage> | <--spacing()> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} ]";
+const positionThree = "[ [ left | center | right ] && [ [ top | bottom ] <length-percentage> | <--spacing()> ] | [ [ left | right ] <length-percentage> | <--spacing()> ] && [ top | center | bottom ] ]";
+const positionFour = "[ [ [ left | right | x-start | x-end ] <length-percentage> | <--spacing()> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> | <--spacing()> ] | [ [ block-start | block-end ] <length-percentage> | <--spacing()> ] && [ [ inline-start | inline-end ] <length-percentage> | <--spacing()> ] | [ [ start | end ] <length-percentage> | <--spacing()> ]{2} ]";
+
+/*
  * Background helpers
  *
  * See: https://developer.mozilla.org/en-US/docs/Web/CSS/background#formal_syntax
  */
 
 const bgSize = "[ [ <length-percentage [0,∞]> | <--spacing()> | auto ]{1,2} | cover | contain ]";
-const positionOne = "[ left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> | <--spacing()> ]";
-const positionTwo = "[ [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> | <--spacing()> ] [ top | center | bottom | y-start | y-end | <length-percentage> | <--spacing()> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} ]";
-const positionThree = "[ [ left | center | right ] && [ [ top | bottom ] <length-percentage> | <--spacing()> ] | [ [ left | right ] <length-percentage> | <--spacing()> ] && [ top | center | bottom ] ]";
-const positionFour = "[ [ [ left | right | x-start | x-end ] <length-percentage> | <--spacing()> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> | <--spacing()> ] | [ [ block-start | block-end ] <length-percentage> | <--spacing()> ] && [ [ inline-start | inline-end ] <length-percentage> | <--spacing()> ] | [ [ start | end ] <length-percentage> | <--spacing()> ]{2} ]";
 const bgPosition = `[ [ ${positionOne} | ${positionTwo} | ${positionFour} ] | ${positionThree} ]`;
 const bgLayer = `[ <bg-image> || ${bgPosition} [ / ${bgSize} ]? || <repeat-style> || <attachment> || <visual-box> || <visual-box> ]`;
 const finalBGLayer = `[ <bg-image> || ${bgPosition} [ / ${bgSize} ]? || <repeat-style> || <attachment> || <visual-box> || <visual-box> || <'background-color'> ]`;
+
+/*
+ * Linear Gradient helpers
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#formal_syntax
+ */
+
+const linearColorHint = `[ <length-percentage> | <--spacing()> ]`;
+const colorStopLength = `[ [ <length-percentage> | <--spacing()> ]{1,2} ]`;
+const linearColorStop = `[ [ <color> | <--alpha()> ] ${colorStopLength}? ]`;
+const colorStopList = `[ ${linearColorStop} , [ ${linearColorHint}? , ${linearColorStop} ]#? ]`;
+const linearGradientSyntax = `[ [ [ <angle> | <zero> | to <side-or-corner> ] || <color-interpolation-method> ]? , ${colorStopList} ]`;
+
+/*
+ * Radial Gradient helpers
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/CSS/radial-gradient#formal_syntax
+ */
+
+const radialGradientPosition = `[ ${positionOne} | ${positionTwo} | ${positionFour} ]`;
+const radialExtent = "[ closest-corner | closest-side | farthest-corner | farthest-side ]";
+const radialSize = `[ ${radialExtent} | [ <length [0,∞]> | <--spacing()> ] | [ <length-percentage [0,∞]> | <--spacing()> ]{2} ]`;
+const radialShape = "[ circle | ellipse ]";
+const radialGradientSyntax = `[ [ [ [ ${radialShape} || ${radialSize} ]? [ at ${radialGradientPosition} ]? ] || <color-interpolation-method> ]? , ${colorStopList} ]`;
 
 /**
  * @type {import("stylelint").Config}
@@ -52,6 +83,8 @@ const stylelintConfigTailwindCSS = {
 				"drop-shadow()": "drop-shadow( [ [ <color> | <--alpha()> ]? && [ <length> | <--spacing()> ]{2,3} ] )",
 				"image()": "image( <image-tags>? [ <image-src>? , [ <color> | <--alpha()> ]? ]! )",
 				"cross-fade()": "cross-fade( [ [ <image> | [ <color> | <--alpha()> ] ] && <percentage [0,100]>? ]# )",
+				"linear-gradient()": `linear-gradient( [ ${linearGradientSyntax} ] )`,
+				"radial-gradient()": `radial-gradient( [ ${radialGradientSyntax} ] )`,
 			},
 			properties: {
 				// Properties that accept `--alpha()`.
