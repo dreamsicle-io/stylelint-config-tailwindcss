@@ -145,8 +145,8 @@
 	background: --alpha(black / 50%) url("bg.jpg") padding-box content-box;
 	background: url("bg.jpg") no-repeat center / cover --alpha(red / 50%);
 	background: url("bg.jpg") center / cover no-repeat fixed padding-box content-box --alpha(red / 50%);
-	background: url("bg.jpg") repeat, linear-gradient(to bottom, #ffffff, #cccccc), --alpha(red / 50%);
-	background: url("bg.jpg") repeat fixed, radial-gradient(circle, #ffffff, #000000), --alpha(red / 50%);
+	background: url("bg.jpg") repeat, linear-gradient(to bottom, #fff, #ccc), --alpha(red / 50%);
+	background: url("bg.jpg") repeat fixed, radial-gradient(circle, #fff, #000), --alpha(red / 50%);
 	border: 1px solid --alpha(black / 50%);
 	border: solid --alpha(black / 50%);
 	border-color: --alpha(black / 50%) --alpha(blue / 50%);
