@@ -236,7 +236,6 @@ const stylelintConfigTailwindCSS = {
 				"custom-variant",
 			],
 		}],
-		"color-hex-length": "long",
 	},
 };
 
