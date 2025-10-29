@@ -1,6 +1,6 @@
 {
 	"name": "@dreamsicle.io/stylelint-config-tailwindcss",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "A stylelint configuration for Tailwind CSS projects.",
 	"main": "index.mjs",
 	"files": [
@@ -26,7 +26,8 @@
 	"author": "Dreamsicle",
 	"license": "MIT",
 	"scripts": {
-		"test": "stylelint -f verbose \"tests/**/*.css\""
+		"test": "stylelint -f verbose \"tests/**/*.css\"",
+		"fix": "npm test -- --fix"
 	},
 	"engines": {
 		"node": ">=18.12.0"
