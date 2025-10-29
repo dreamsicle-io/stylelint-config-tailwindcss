@@ -26,7 +26,8 @@
 	"author": "Dreamsicle",
 	"license": "MIT",
 	"scripts": {
-		"test": "stylelint -f verbose \"tests/**/*.css\""
+		"test": "stylelint -f verbose \"tests/**/*.css\"",
+		"fix": "npm test -- --fix; npm pkg fix;"
 	},
 	"engines": {
 		"node": ">=18.12.0"
