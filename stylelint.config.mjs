@@ -1,4 +1,4 @@
-import stylelintConfigTailwindCSS from "./index.mjs";
+import stylelintConfigTailwindCSS from "./dist/stylelint.config.mjs";
 
 /**
  * @type {import("stylelint").Config}

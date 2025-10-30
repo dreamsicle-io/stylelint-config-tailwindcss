@@ -1,4 +1,5 @@
 # build
+/syntax
 /dist
 
 # dependencies

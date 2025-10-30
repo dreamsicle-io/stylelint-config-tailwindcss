@@ -1,18 +1,29 @@
 
 // @ts-check
 
-import types from "./dist/types.json" with { type: "json" };
-import properties from "./dist/properties.json" with { type: "json" };
+import types from "../syntax/types.json";
+import properties from "../syntax/properties.json";
+import atRules from "../syntax/at-rules.json";
 
 /**
  * @type {import("stylelint").Config}
  */
-const stylelintConfigTailwindCSS = {
+const stylelintConfig = {
 	languageOptions: {
 		syntax: {
+			types: {
+				"tailwindcss-color": "<color> | <--alpha()>",
+				"tailwindcss-length": "<length> | <--spacing()>",
+				"--alpha()": "--alpha( <color> / <percentage> )",
+				"--spacing()": "--spacing( <number> )",
+				...types,
+			},
+			properties: {
+				...properties,
+			},
 			atRules: {
 				"theme": {
-					prelude: "<custom-ident>",
+					prelude: "inline",
 				},
 				"source": {
 					prelude: "<string>",
@@ -32,14 +43,7 @@ const stylelintConfigTailwindCSS = {
 				"apply": {
 					prelude: "<custom-ident>+",
 				},
-			},
-			types: {
-				"--alpha()": "--alpha( <color> / <percentage> )",
-				"--spacing()": "--spacing( <number> )",
-				...types,
-			},
-			properties: {
-				...properties,
+				...atRules,
 			},
 		},
 	},
@@ -55,4 +59,4 @@ const stylelintConfigTailwindCSS = {
 	},
 };
 
-export default stylelintConfigTailwindCSS;
+export default stylelintConfig;

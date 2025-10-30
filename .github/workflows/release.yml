@@ -10,13 +10,13 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
 
-    # Initialize the env variables. These get set after the repo is checked out
+    # Initializes the env variables. These get set after the repo is checked out
     # because they depend on files in the repo.
     env:
       MODULE_VERSION: ''
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
+      # Checks-out repo.
       - name: Checkout Repo
         id: checkout_repo
         uses: actions/checkout@v4

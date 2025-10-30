@@ -1,11 +1,10 @@
 {
 	"name": "@dreamsicle.io/stylelint-config-tailwindcss",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "A stylelint configuration for Tailwind CSS projects.",
-	"main": "index.mjs",
+	"main": "dist/index.js",
 	"files": [
 		"package.json",
-		"index.mjs",
 		"dist",
 		"README.md",
 		"LICENSE"
@@ -27,7 +26,8 @@
 	"author": "Dreamsicle",
 	"license": "MIT",
 	"scripts": {
-		"build": "node scripts/build.mjs",
+		"generate-syntax": "node scripts/generate-syntax.mjs",
+		"build": "rollup -c",
 		"test": "stylelint -f verbose \"tests/**/*.css\"",
 		"fix": "npm test -- --fix",
 		"clean-dist": "rm -rf dist",
@@ -38,8 +38,12 @@
 		"stylelint": "^16.25.0"
 	},
 	"devDependencies": {
+		"@rollup/plugin-commonjs": "29.0.0",
+		"@rollup/plugin-json": "6.1.0",
+		"@rollup/plugin-node-resolve": "16.0.3",
 		"chalk": "5.6.2",
 		"css-tree": "^3.1.0",
+		"rollup": "4.52.5",
 		"stylelint": "^16.25.0",
 		"stylelint-config-standard": "^39.0.1"
 	}
