@@ -38,6 +38,11 @@ jobs:
         id: install
         run: npm install
 
+			# Runs a build.
+      - name: Build
+        id: build
+        run: npm run build -- --verbose
+
       # Tests all files.
       - name: Test
         id: Test
