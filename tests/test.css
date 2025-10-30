@@ -349,13 +349,7 @@
 	border-width: 4px --spacing(2) --spacing(2) --spacing(2);
 	border-width: --spacing(2) --spacing(2) --spacing(2) 4px;
 	border-block-width: --spacing(4);
-	border-block-width: --spacing(4) --spacing(2);
-	border-block-width: 4px --spacing(2);
-	border-block-width: --spacing(4) 2px;
 	border-inline-width: --spacing(4);
-	border-inline-width: --spacing(4) --spacing(2);
-	border-inline-width: 4px --spacing(2);
-	border-inline-width: --spacing(4) 2px;
 	scroll-padding: --spacing(4);
 	scroll-padding: --spacing(4) --spacing(2);
 	scroll-padding: --spacing(4) --spacing(2) --spacing(2);

@@ -34,6 +34,16 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: 'https://registry.npmjs.org'
 
+      # Installs npm dependencies.
+      - name: Install
+        id: install
+        run: npm install
+
+      # Runs a build.
+      - name: Build
+        id: build
+        run: npm run build -- --verbose
+
       # Publish public package to NPM.
       - name: Publish
         id: publish
