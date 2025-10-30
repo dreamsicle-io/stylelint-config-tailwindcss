@@ -1,5 +1,6 @@
 // @ts-check
 
+import Logger from "../lib/Logger.mjs";
 import Generator from "../lib/Generator.mjs";
 
 const args = process.argv.slice(2);
@@ -9,4 +10,9 @@ const generator = new Generator({
 	isVerbose: isVerbose,
 });
 
-await generator.generate();
+try {
+	await generator.generate();
+} catch(error) {
+	Logger.error({ error, isVerbose });
+	process.exit(1);
+}
