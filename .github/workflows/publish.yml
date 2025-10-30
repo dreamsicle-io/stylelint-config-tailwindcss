@@ -39,7 +39,7 @@ jobs:
         id: install
         run: npm install
 
-			# Generates syntax.
+      # Generates syntax.
       - name: Generate Syntax
         id: generate-syntax
         run: npm run generate-syntax -- --verbose
