@@ -52,3 +52,39 @@ The [`@custom-variant` directive](https://tailwindcss.com/docs/adding-custom-sty
 ```
 
 > **Note:** You may continue to use the inline statement if you prefer, but you should use a `/* stylelint-disable-next-line at-rule-prelude-no-invalid */` comment when using it.
+
+## Development
+
+This package has a build script will generate `dist/types.json` and `dist/properties.json` files by upgrading syntax from [css-tree](https://www.npmjs.com/package/css-tree), which is the same package Stylelint uses under the hood. The contents of these files are passed to Stylelint's `languageOptions.syntax.types` and `languageOptions.syntax.properties` respectively. The generation of both types and properties allows for automatic upgrading of CSS syntax to accept Tailwind CSS properties where they are accepted.
+
+### Build
+
+```shell
+npm run build
+```
+
+> **Note:** The logging of the build script can be made more verbose by passing the `--verbose` flag as `npm run build -- --verbose`.
+
+### Test
+
+```shell
+npm test
+```
+
+> **Note:** This will run stylelint against any CSS files found in the `tests` directory.
+
+### Logging
+
+The build script will log its output to the console.
+
+```
+⚡ Generating ― Using css-tree v3.1.0
+
+⏳ Generating upgraded types ― Found 25 type upgrade candidates
+🔨 Generated upgraded types ― dist\types.json
+⏳ Generating upgraded properties ― Found 107 property upgrade candidates
+🔨 Generated upgraded properties ― dist\properties.json
+
+🚀 Generated successfully ― 2 files generated successfully
+```
+
