@@ -27,7 +27,7 @@
 	"license": "MIT",
 	"scripts": {
 		"generate-syntax": "node scripts/generate-syntax.mjs",
-		"build": "npm run generate-syntax && rollup -c",
+		"build": "rollup -c",
 		"test": "stylelint -f verbose \"tests/**/*.css\"",
 		"fix": "npm test -- --fix",
 		"clean-dist": "rm -rf dist",
