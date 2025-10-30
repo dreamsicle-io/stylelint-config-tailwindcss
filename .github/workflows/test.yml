@@ -38,7 +38,7 @@ jobs:
         id: install
         run: npm install
 
-			# Runs a build.
+      # Runs a build.
       - name: Build
         id: build
         run: npm run build -- --verbose
