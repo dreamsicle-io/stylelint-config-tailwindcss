@@ -59,7 +59,7 @@ This package has a build script will generate `dist/types.json` and `dist/proper
 
 ### Build
 
-```shell
+```
 npm run build
 ```
 
@@ -67,7 +67,7 @@ npm run build
 
 ### Test
 
-```shell
+```
 npm test
 ```
 
@@ -78,13 +78,13 @@ npm test
 The build script will log its output to the console.
 
 ```
-⚡ Generating ― Using css-tree v3.1.0
+⚡ Generating syntax ― Using css-tree v3.1.0
 
 ⏳ Generating upgraded types ― Found 25 type upgrade candidates
 🔨 Generated upgraded types ― dist\types.json
-⏳ Generating upgraded properties ― Found 107 property upgrade candidates
+⏳ Generating upgraded properties ― Found 107 property upgrade candidates  
 🔨 Generated upgraded properties ― dist\properties.json
 
-🚀 Generated successfully ― 2 files generated successfully
+🚀 Generated syntax ― 2 files generated successfully
 ```
 
