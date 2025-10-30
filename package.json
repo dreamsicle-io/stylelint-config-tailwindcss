@@ -1,6 +1,6 @@
 {
 	"name": "@dreamsicle.io/stylelint-config-tailwindcss",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "A stylelint configuration for Tailwind CSS projects.",
 	"main": "index.mjs",
 	"files": [
