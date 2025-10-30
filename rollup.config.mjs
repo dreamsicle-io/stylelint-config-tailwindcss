@@ -15,10 +15,6 @@ export default defineConfig({
 			file: path.join(process.cwd(), "dist", "stylelint.config.cjs"),
 			format: "cjs",
 		},
-		{
-			file: path.join(process.cwd(), "dist", "stylelint.config.js"),
-			format: "cjs",
-		},
 	],
 	plugins: [
 		pluginJSON({
