@@ -29,7 +29,10 @@
 	"scripts": {
 		"build": "node scripts/build.mjs",
 		"test": "stylelint -f verbose \"tests/**/*.css\"",
-		"fix": "npm test -- --fix"
+		"fix": "npm test -- --fix",
+		"clean-dist": "rm -rf dist",
+		"clean-deps": "rm -rf node_modules package-lock.json",
+		"clean": "npm run clean-dist; npm run clean-deps"
 	},
 	"peerDependencies": {
 		"stylelint": "^16.25.0"
