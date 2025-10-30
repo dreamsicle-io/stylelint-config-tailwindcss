@@ -6,6 +6,7 @@
 	"files": [
 		"package.json",
 		"index.mjs",
+		"dist",
 		"README.md",
 		"LICENSE"
 	],
@@ -26,7 +27,7 @@
 	"author": "Dreamsicle",
 	"license": "MIT",
 	"scripts": {
-		"generate": "node scripts/generate.mjs",
+		"build": "node scripts/build.mjs",
 		"test": "stylelint -f verbose \"tests/**/*.css\"",
 		"fix": "npm test -- --fix"
 	},
