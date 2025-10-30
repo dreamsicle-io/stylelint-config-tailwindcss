@@ -3,6 +3,7 @@
 
 import types from "./dist/types.json" with { type: "json" };
 import properties from "./dist/properties.json" with { type: "json" };
+import atRules from "./dist/at-rules.json" with { type: "json" };
 
 /**
  * @type {import("stylelint").Config}
@@ -10,9 +11,19 @@ import properties from "./dist/properties.json" with { type: "json" };
 const stylelintConfigTailwindCSS = {
 	languageOptions: {
 		syntax: {
+			types: {
+				"tailwindcss-color": "<color> | <--alpha()>",
+				"tailwindcss-length": "<length> | <--spacing()>",
+				"--alpha()": "--alpha( <color> / <percentage> )",
+				"--spacing()": "--spacing( <number> )",
+				...types,
+			},
+			properties: {
+				...properties,
+			},
 			atRules: {
 				"theme": {
-					prelude: "<custom-ident>",
+					prelude: "inline",
 				},
 				"source": {
 					prelude: "<string>",
@@ -32,14 +43,7 @@ const stylelintConfigTailwindCSS = {
 				"apply": {
 					prelude: "<custom-ident>+",
 				},
-			},
-			types: {
-				"--alpha()": "--alpha( <color> / <percentage> )",
-				"--spacing()": "--spacing( <number> )",
-				...types,
-			},
-			properties: {
-				...properties,
+				...atRules,
 			},
 		},
 	},
