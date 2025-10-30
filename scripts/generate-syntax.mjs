@@ -1,17 +1,17 @@
 // @ts-check
 
 import Logger from "../lib/Logger.mjs";
-import Generator from "../lib/Generator.mjs";
+import SyntaxGenerator from "../lib/SyntaxGenerator.mjs";
 
 const args = process.argv.slice(2);
 const isVerbose = args.includes('--verbose');
 
-const generator = new Generator({
+const syntaxGenerator = new SyntaxGenerator({
 	isVerbose: isVerbose,
 });
 
 try {
-	await generator.generate();
+	await syntaxGenerator.generate();
 } catch(error) {
 	Logger.error({ error, isVerbose });
 	process.exit(1);
