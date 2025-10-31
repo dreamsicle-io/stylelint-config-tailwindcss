@@ -26,13 +26,12 @@
 	"author": "Dreamsicle",
 	"license": "MIT",
 	"scripts": {
-		"generate-syntax": "node scripts/generate-syntax.mjs",
+		"start": "rollup -c --watch",
 		"build": "rollup -c",
 		"test": "stylelint -f verbose \"tests/**/*.css\"",
 		"fix": "npm test -- --fix",
-		"clean-dist": "rm -rf dist",
-		"clean-deps": "rm -rf node_modules package-lock.json",
-		"clean": "npm run clean-dist; npm run clean-deps"
+		"clean": "rm -rf dist; rm -rf syntax",
+		"clean-deps": "rm -rf node_modules package-lock.json"
 	},
 	"peerDependencies": {
 		"stylelint": "^16.17.0"
