@@ -6,14 +6,14 @@ import commonJS from "@rollup/plugin-commonjs";
 import tailwindcssSyntax from "./lib/rollup-plugins/tailwindcssSyntax.mjs";
 
 export default defineConfig({
-	input: path.join(process.cwd(), "src", "stylelint.config.mjs"),
+	input: path.join("src", "stylelint.config.mjs"),
 	output: [
 		{
-			file: path.join(process.cwd(), "dist", "stylelint.config.mjs"),
+			file: path.join("dist", "stylelint.config.mjs"),
 			format: "esm",
 		},
 		{
-			file: path.join(process.cwd(), "dist", "stylelint.config.cjs"),
+			file: path.join("dist", "stylelint.config.cjs"),
 			format: "cjs",
 		},
 	],
