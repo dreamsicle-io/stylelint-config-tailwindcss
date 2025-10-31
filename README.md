@@ -38,34 +38,37 @@ This package exports both an ESM module and a Common JS module. The default expo
 You can also decide to spread the imported config onto your stylelint object to extend `languageOptions`, `languageOptions.syntax`, `languageOptions.syntax.types`, `languageOptions.syntax.properties`, or `languageOptions.syntax.atRules`. Below is an example of how to fully spread everything provided by this config.
 
 ```javascript
-import { languageOptions, rules } from "@dreamsicle.io/stylelint-config-tailwindcss/dist/stylelint.config.mjs";
+import configTailwindcss from "@dreamsicle.io/stylelint-config-tailwindcss/dist/stylelint.config.mjs";
 
 /**
  * @type {import("stylelint").Config}
  */
-const stylelintConfigSpread = {
+const stylelintConfig = {
 	extends: [
 		"stylelint-config-standard",
 	],
 	languageOptions: {
-		...languageOptions,
+		...configTailwindcss.languageOptions,
 		syntax: {
-			...languageOptions.syntax,
+			...configTailwindcss.languageOptions.syntax,
 			types: {
-				...languageOptions.syntax.types,
+				...configTailwindcss.languageOptions.syntax.types,
 			},
 			properties: {
-				...languageOptions.syntax.properties,
+				...configTailwindcss.languageOptions.syntax.properties,
 			},
 			atRules: {
-				...languageOptions.syntax.atRules,
+				...configTailwindcss.languageOptions.syntax.atRules,
 			},
 		}
 	},
 	rules: {
-		...rules,
+		...configTailwindcss.rules,
+		
 	}
 };
+
+export default stylelintConfig;
 ```
 
 > **Note:** All types, properties, and at-rules and Stylelint rules are required for this configuration to funciton properly. There are no stylistic rules provided by it, as it inly includes what is needed to make Stylelint play well with Tailwind CSS.
