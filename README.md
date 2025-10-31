@@ -100,7 +100,7 @@ The [`@custom-variant` directive](https://tailwindcss.com/docs/adding-custom-sty
 
 ## Development
 
-This package has a build script will generate only the syntax needed to override Stylelint's language options to suport Tailwind CSS functions and directives. This works by upgrading syntax from [CSS Tree](https://www.npmjs.com/package/css-tree), which is the same package Stylelint uses under the hood.
+This package has a build script that will generate only the syntax needed to override Stylelint's language options to suport Tailwind CSS functions and directives. This works by upgrading syntax from [CSS Tree](https://www.npmjs.com/package/css-tree), which is the same package Stylelint uses under the hood.
 
 This is accomplished using our `SyntaxGenerator` class, used through a [Rollup](https://rollupjs.org/) plugin. The contents of these files are built to the `syntax` directory, then imported and built through rollup into an **ESM module** and a **Common JS** module located in the `dist` directory.
 
