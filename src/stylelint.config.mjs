@@ -49,8 +49,6 @@ const stylelintConfig = {
 	},
 	rules: {
 		"import-notation": "string",
-		"lightness-notation": "number",
-		"hue-degree-notation": "number",
 		"nesting-selector-no-missing-scoping-root": [true, {
 			ignoreAtRules: [
 				"custom-variant",
