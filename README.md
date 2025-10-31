@@ -17,16 +17,61 @@ npm install --save-dev @dreamsicle.io/stylelint-config-tailwindcss
  * @type {import("stylelint").Config}
  */
 const stylelintConfig = {
-	// ...
 	extends: [
 		"stylelint-config-standard",
 		"@dreamsicle.io/stylelint-config-tailwindcss",
 	],
-	// ...
 };
 
 export default stylelintConfig;
 ```
+
+## Exports
+
+This package exports both an ESM module and a Common JS module. The default export is the ESM module.
+
+- `dist/stylelint.config.mjs` - ESM
+- `dist/stylelint.config.cjs` - Common JS
+
+### Accessing specific keys
+
+You can also decide to spread the imported config onto your stylelint object to extend `languageOptions`, `languageOptions.syntax`, `languageOptions.syntax.types`, `languageOptions.syntax.properties`, or `languageOptions.syntax.atRules`. Below is an example of how to fully spread everything provided by this config.
+
+```javascript
+import configTailwindcss from "@dreamsicle.io/stylelint-config-tailwindcss/dist/stylelint.config.mjs";
+
+/**
+ * @type {import("stylelint").Config}
+ */
+const stylelintConfig = {
+	extends: [
+		"stylelint-config-standard",
+	],
+	languageOptions: {
+		...configTailwindcss.languageOptions,
+		syntax: {
+			...configTailwindcss.languageOptions.syntax,
+			types: {
+				...configTailwindcss.languageOptions.syntax.types,
+			},
+			properties: {
+				...configTailwindcss.languageOptions.syntax.properties,
+			},
+			atRules: {
+				...configTailwindcss.languageOptions.syntax.atRules,
+			},
+		}
+	},
+	rules: {
+		...configTailwindcss.rules,
+		
+	}
+};
+
+export default stylelintConfig;
+```
+
+> **Note:** All types, properties, and at-rules and Stylelint rules are required for this configuration to funciton properly. There are no stylistic rules provided by it, as it inly includes what is needed to make Stylelint play well with Tailwind CSS.
 
 ## Known issues
 
@@ -55,7 +100,11 @@ The [`@custom-variant` directive](https://tailwindcss.com/docs/adding-custom-sty
 
 ## Development
 
-This package has a build script will generate syntax files for types, properties, and at-rules in the `syntax` directory. This works by upgrading syntax from [css-tree](https://www.npmjs.com/package/css-tree), which is the same package Stylelint uses under the hood. The contents of these files are passed to Stylelint's `languageOptions.syntax` through the config template found at `src/stylelint.config.mjs`. The generation of types, properties, and at-rules allows for automatic upgrading of CSS syntax to accept Tailwind CSS properties where they are accepted in the least destructive and most maintainable way possible.
+This package has a build script will generate only the syntax needed to override Stylelint's language options to suport Tailwind CSS functions and directives. This works by upgrading syntax from [CSS Tree](https://www.npmjs.com/package/css-tree), which is the same package Stylelint uses under the hood.
+
+This is accomplished using our `SyntaxGenerator` class, used through a [Rollup](https://rollupjs.org/) plugin. The contents of these files are built to the `syntax` directory, then imported and built through rollup into an **ESM module** and a **Common JS** module located in the `dist` directory.
+
+The contents of these files are passed to Stylelint's `languageOptions.syntax` through the config template found at `src/stylelint.config.mjs`. The generation of types, properties, and at-rules allows for automatic upgrading of CSS syntax to accept Tailwind CSS properties where they are accepted in the least destructive and most maintainable way possible.
 
 ### Start
 

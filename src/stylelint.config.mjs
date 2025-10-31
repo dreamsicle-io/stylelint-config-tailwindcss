@@ -1,9 +1,9 @@
 
 // @ts-check
 
-import types from "../syntax/types.json";
-import properties from "../syntax/properties.json";
-import atRules from "../syntax/at-rules.json";
+import types from "../syntax/types.json" with { type: "json" };
+import properties from "../syntax/properties.json" with { type: "json" };
+import atRules from "../syntax/at-rules.json" with { type: "json" };
 
 /**
  * @type {import("stylelint").Config}
@@ -49,8 +49,6 @@ const stylelintConfig = {
 	},
 	rules: {
 		"import-notation": "string",
-		"lightness-notation": "number",
-		"hue-degree-notation": "number",
 		"nesting-selector-no-missing-scoping-root": [true, {
 			ignoreAtRules: [
 				"custom-variant",
