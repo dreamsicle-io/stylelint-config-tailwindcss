@@ -1,8 +1,9 @@
 import path from "node:path";
 import { defineConfig } from "rollup";
-import pluginJSON from "@rollup/plugin-json";
-import pluginNodeResolve from "@rollup/plugin-node-resolve";
-import pluginCommonJS from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
+import nodeResolve from "@rollup/plugin-node-resolve";
+import commonJS from "@rollup/plugin-commonjs";
+import tailwindcssSyntax from "./lib/rollup-plugins/tailwindcssSyntax.mjs";
 
 export default defineConfig({
 	input: path.join(process.cwd(), "src", "stylelint.config.mjs"),
@@ -16,12 +17,16 @@ export default defineConfig({
 			format: "cjs",
 		},
 	],
+	watch: {
+    exclude: ["syntax/**"],
+  },
 	plugins: [
-		pluginJSON({
+		json({
 			namedExports: false,
 			preferConst: true,
 		}),
-		pluginNodeResolve(),
-		pluginCommonJS(),
+		nodeResolve(),
+		commonJS(),
+		tailwindcssSyntax(),
 	],
 });

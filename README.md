@@ -1,16 +1,16 @@
 # Stylelint Config: Tailwind CSS
 
-A [Stylelint](https://stylelint.io/) configuration for [Tailwind CSS](https://tailwindcss.com/) projects. This config was developed specifically for **Tailwind CSS v4+**. This configuration was developed because most of the other popular Stylelint configurations for Tailwind CSS simply ignore directives and functions. Instead, we implemented all [Tailwind CSS directives and functions](https://tailwindcss.com/docs/functions-and-directives) as syntax for [Stylelint's language options](https://stylelint.io/user-guide/configure/#languageoptions); so not only can you use them without Stylelint complaining, but Stylelint will actually help to ensure you are using them correctly.
+A [Stylelint](https://stylelint.io/) configuration for [Tailwind CSS](https://tailwindcss.com/) projects. This config was developed specifically for **Tailwind CSS v4+** and **Stylelint v16.17+**. This configuration was developed because most of the other popular Stylelint configurations for Tailwind CSS simply ignore directives and functions. Instead, this config implements all [Tailwind CSS directives and functions](https://tailwindcss.com/docs/functions-and-directives) as syntax for [Stylelint's language options](https://stylelint.io/user-guide/configure/#languageoptions); so not only can you use them without Stylelint complaining, but Stylelint will actually help to ensure you are using them correctly.
 
 ## Getting started
 
-### Install
+### Install the package
 
 ```shell
 npm install --save-dev @dreamsicle.io/stylelint-config-tailwindcss
 ```
 
-### Include in `extends`
+### Include in your Stylelint config
 
 ```javascript
 /**
@@ -55,7 +55,15 @@ The [`@custom-variant` directive](https://tailwindcss.com/docs/adding-custom-sty
 
 ## Development
 
-This package has a build script will generate `dist/types.json` and `dist/properties.json` files by upgrading syntax from [css-tree](https://www.npmjs.com/package/css-tree), which is the same package Stylelint uses under the hood. The contents of these files are passed to Stylelint's `languageOptions.syntax.types` and `languageOptions.syntax.properties` respectively. The generation of both types and properties allows for automatic upgrading of CSS syntax to accept Tailwind CSS properties where they are accepted.
+This package has a build script will generate syntax files for types, properties, and at-rules in the `syntax` directory. This works by upgrading syntax from [css-tree](https://www.npmjs.com/package/css-tree), which is the same package Stylelint uses under the hood. The contents of these files are passed to Stylelint's `languageOptions.syntax` through the config template found at `src/stylelint.config.mjs`. The generation of types, properties, and at-rules allows for automatic upgrading of CSS syntax to accept Tailwind CSS properties where they are accepted in the least destructive and most maintainable way possible.
+
+### Start
+
+```
+npm start
+```
+
+> **Note:** This script will run rollup in watch mode, so that changes to the config template automatically rebuild.
 
 ### Build
 
@@ -63,7 +71,7 @@ This package has a build script will generate `dist/types.json` and `dist/proper
 npm run build
 ```
 
-> **Note:** The logging of the build script can be made more verbose by passing the `--verbose` flag as `npm run build -- --verbose`.
+> **Note:** This script will run rollup to create a build, exiting on completion.
 
 ### Test
 
@@ -73,18 +81,10 @@ npm test
 
 > **Note:** This will run stylelint against any CSS files found in the `tests` directory.
 
-### Logging
-
-The build script will log its output to the console.
+### Fix
 
 ```
-⚡ Generating syntax ― Using css-tree v3.1.0
-
-⏳ Generating upgraded types ― Found 25 type upgrade candidates
-🔨 Generated upgraded types ― dist\types.json
-⏳ Generating upgraded properties ― Found 107 property upgrade candidates  
-🔨 Generated upgraded properties ― dist\properties.json
-
-🚀 Generated syntax ― 2 files generated successfully
+npm run fix
 ```
 
+> **Note:** This will run stylelint in _fix_ mode against any CSS files found in the `tests` directory.
