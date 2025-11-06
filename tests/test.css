@@ -59,6 +59,12 @@
 	tab-size: 4;
 }
 
+@utility scrollbar-* {
+	&::-webkit-scrollbar-track {
+    width: --spacing(--value(integer));
+  }
+}
+
 /*
  * Directives / variant
  *
@@ -96,8 +102,11 @@
  */
 
 .apply-directive {
-		@apply relative;
-		@apply relative block;
+	@apply relative;
+	@apply relative block;
+	@apply hover:h-0.5;
+	@apply text-[rgb(0,0,0)];
+	@apply sm:h-0.5 sm:hover:h-1.5;
 }
 
 /*
