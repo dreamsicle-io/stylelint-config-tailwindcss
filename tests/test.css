@@ -91,8 +91,6 @@
 	}
 }
 
-/* TODO: Support this syntax. */
-/* stylelint-disable-next-line at-rule-prelude-no-invalid */
 @custom-variant theme-midnight (&:where([data-theme="midnight"] *));
 
 /*

@@ -35,7 +35,7 @@ const stylelintConfig = {
 					prelude: "<custom-ident>",
 				},
 				"custom-variant": {
-					prelude: "<custom-ident>",
+					prelude: "<any-value>+",
 				},
 				"reference": {
 					prelude: "<string>",
