@@ -73,31 +73,6 @@ export default stylelintConfig;
 
 > **Note:** All types, properties, and at-rules and Stylelint rules are required for this configuration to funciton properly. There are no stylistic rules provided by it, as it inly includes what is needed to make Stylelint play well with Tailwind CSS.
 
-## Known issues
-
-### `@custom-variant` inline syntax
-
-The [`@custom-variant` directive](https://tailwindcss.com/docs/adding-custom-styles#adding-custom-variants) can be used to create a custom variant, and can be written as a **nested statement**, or an **inline statement**. Currently, it does not seem to be possible to represent the **inline statement** using Stylelint's language options. We recommend using the **nested statement**.
-
-#### Nested `@custom-variant` syntax: _Supported_
-
-```css
-@custom-variant theme-midnight {
-	&:where([data-theme="midnight"] *) {
-		@slot;
-	}
-}
-```
-
-#### Inline `@custom-variant` syntax: _Not supported_
-
-```css
-/* stylelint-disable-next-line at-rule-prelude-no-invalid */
-@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
-```
-
-> **Note:** You may continue to use the inline statement if you prefer, but you should use a `/* stylelint-disable-next-line at-rule-prelude-no-invalid */` comment when using it.
-
 ## Development
 
 This package has a build script that will generate only the syntax needed to override Stylelint's language options to suport Tailwind CSS functions and directives. This works by upgrading syntax from [CSS Tree](https://www.npmjs.com/package/css-tree), which is the same package Stylelint uses under the hood.

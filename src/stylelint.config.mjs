@@ -29,19 +29,19 @@ const stylelintConfig = {
 					prelude: "<string>",
 				},
 				"utility": {
-					prelude: "<custom-ident>",
+					prelude: "<any-value>",
 				},
 				"variant": {
 					prelude: "<custom-ident>",
 				},
 				"custom-variant": {
-					prelude: "<custom-ident>",
+					prelude: "<any-value> | <any-value> <any-value>",
 				},
 				"reference": {
 					prelude: "<string>",
 				},
 				"apply": {
-					prelude: "<custom-ident>+",
+					prelude: "<any-value>+",
 				},
 				...atRules,
 			},
@@ -52,6 +52,7 @@ const stylelintConfig = {
 		"nesting-selector-no-missing-scoping-root": [true, {
 			ignoreAtRules: [
 				"custom-variant",
+				"utility",
 			],
 		}],
 	},
