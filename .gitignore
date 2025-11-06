@@ -1,12 +1,13 @@
 # build
+
 /syntax
 /dist
 
 # dependencies
+
 /node_modules
 
-# debug
-npm-debug.log*
+# Misc
 
-# misc
+npm-debug.log*
 .DS_Store
