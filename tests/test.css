@@ -61,8 +61,8 @@
 
 @utility scrollbar-* {
 	&::-webkit-scrollbar-track {
-    width: --spacing(--value(integer));
-  }
+		width: --spacing(--value(integer));
+	}
 }
 
 /*
