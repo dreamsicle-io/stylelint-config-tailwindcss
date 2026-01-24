@@ -9,6 +9,11 @@ jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
+		# Allow GitHub’s OIDC identity token feature for compat
+		# with NPM Trusted Publishing.
+    permissions:
+      contents: read
+      id-token: write
 
     # Initializes the env variables. These get set after the repo is checked out
     # because they depend on files in the repo.
@@ -48,5 +53,3 @@ jobs:
       - name: Publish
         id: publish
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
