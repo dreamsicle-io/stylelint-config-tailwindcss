@@ -177,8 +177,8 @@
 	outline: solid --alpha(black / 50%);
 	column-rule: 1px solid --alpha(black / 50%);
 	column-rule: solid --alpha(black / 50%);
-	text-emphasis: filled --alpha(black /50%);
-	text-emphasis: filled double-circle --alpha(black /50%);
+	text-emphasis: filled --alpha(black / 50%);
+	text-emphasis: filled double-circle --alpha(black / 50%);
 	text-emphasis: "*" --alpha(black / 50%);
 }
 
