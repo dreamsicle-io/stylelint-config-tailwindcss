@@ -77,9 +77,14 @@
 
 .variant {
 	background-color: white;
+	width: 200px;
 
 	@variant dark {
 		background-color: black;
+	}
+
+	@variant 3xl {
+		width: 300px;
 	}
 }
 
