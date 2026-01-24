@@ -34,6 +34,10 @@
 	--font-display: "Satoshi", sans-serif;
 }
 
+@theme static {
+	--font-display: "Satoshi", sans-serif;
+}
+
 /*
  * Directives / source
  *
@@ -73,9 +77,14 @@
 
 .variant {
 	background-color: white;
+	width: 200px;
 
 	@variant dark {
 		background-color: black;
+	}
+
+	@variant 3xl {
+		width: 300px;
 	}
 }
 
@@ -168,8 +177,8 @@
 	outline: solid --alpha(black / 50%);
 	column-rule: 1px solid --alpha(black / 50%);
 	column-rule: solid --alpha(black / 50%);
-	text-emphasis: filled --alpha(black /50%);
-	text-emphasis: filled double-circle --alpha(black /50%);
+	text-emphasis: filled --alpha(black / 50%);
+	text-emphasis: filled double-circle --alpha(black / 50%);
 	text-emphasis: "*" --alpha(black / 50%);
 }
 

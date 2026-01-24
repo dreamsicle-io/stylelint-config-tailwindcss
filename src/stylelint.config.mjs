@@ -12,18 +12,20 @@ const stylelintConfig = {
 	languageOptions: {
 		syntax: {
 			types: {
-				"tailwindcss-color": "<color> | <--alpha()>",
-				"tailwindcss-length": "<length> | <--spacing()>",
 				"--alpha()": "--alpha( <color> / <percentage> )",
 				"--spacing()": "--spacing( <number> )",
+				"tailwindcss-color": "<color> | <--alpha()>",
+				"tailwindcss-length": "<length> | <--spacing()>",
 				...types,
 			},
 			properties: {
+				"flood-color": "<tailwindcss-color>",
+				"lighting-color": "<tailwindcss-color>",
 				...properties,
 			},
 			atRules: {
 				"theme": {
-					prelude: "inline",
+					prelude: "inline | static",
 				},
 				"source": {
 					prelude: "<string>",
@@ -32,7 +34,7 @@ const stylelintConfig = {
 					prelude: "<any-value>",
 				},
 				"variant": {
-					prelude: "<custom-ident>",
+					prelude: "<any-value>",
 				},
 				"custom-variant": {
 					prelude: "<any-value> | <any-value> <any-value>",
