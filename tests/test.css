@@ -69,6 +69,14 @@
 	}
 }
 
+@utility word-break-compat {
+	word-break: auto-phrase;
+
+	@supports not (word-break: auto-phrase) {
+		overflow-wrap: break-word;
+	}
+}
+
 /*
  * Directives / variant
  *
