@@ -34,6 +34,10 @@
 	--font-display: "Satoshi", sans-serif;
 }
 
+@theme static {
+	--font-display: "Satoshi", sans-serif;
+}
+
 /*
  * Directives / source
  *
