@@ -19,6 +19,8 @@ const stylelintConfig = {
 				...types,
 			},
 			properties: {
+				"flood-color": "<tailwindcss-color>",
+				"lighting-color": "<tailwindcss-color>",
 				...properties,
 			},
 			atRules: {
