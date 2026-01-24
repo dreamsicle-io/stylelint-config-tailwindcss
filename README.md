@@ -71,7 +71,7 @@ const stylelintConfig = {
 export default stylelintConfig;
 ```
 
-> **Note:** All types, properties, and at-rules and Stylelint rules are required for this configuration to funciton properly. There are no stylistic rules provided by it, as it inly includes what is needed to make Stylelint play well with Tailwind CSS.
+> **Note:** All types, properties, at-rules and Stylelint rules are required for this configuration to function properly. There are no stylistic rules provided by it, as it inly includes what is needed to make Stylelint play well with Tailwind CSS.
 
 ## Development
 
