@@ -57,6 +57,11 @@ const stylelintConfig = {
 				"utility",
 			],
 		}],
+		"no-invalid-position-declaration": [true, {
+			ignoreAtRules: [
+				"utility"
+			],
+		}],
 	},
 };
 
