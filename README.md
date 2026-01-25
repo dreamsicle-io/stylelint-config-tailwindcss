@@ -1,4 +1,7 @@
-# Stylelint Config: Tailwind CSS
+# Stylelint Config: Tailwind CSS 
+
+[![Awesome Stylelint](https://awesome.re/badge.svg)](https://stylelint.io/awesome-stylelint/) [![NPM Downloads](https://img.shields.io/npm/dy/%40dreamsicle.io%2Fstylelint-config-tailwindcss?label=npm)](https://www.npmjs.com/package/@dreamsicle.io/stylelint-config-tailwindcss)
+
 
 A [Stylelint](https://stylelint.io/) configuration for [Tailwind CSS](https://tailwindcss.com/) projects. This config was developed specifically for **Tailwind CSS v4+** and **Stylelint v16.17+**. This configuration was developed because most of the other popular Stylelint configurations for Tailwind CSS simply ignore directives and functions. Instead, this config implements all [Tailwind CSS directives and functions](https://tailwindcss.com/docs/functions-and-directives) as syntax for [Stylelint's language options](https://stylelint.io/user-guide/configure/#languageoptions); so not only can you use them without Stylelint complaining, but Stylelint will actually help to ensure you are using them correctly.
 
