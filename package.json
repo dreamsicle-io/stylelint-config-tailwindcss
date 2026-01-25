@@ -34,7 +34,7 @@
 		"clean-deps": "rm -rf node_modules package-lock.json"
 	},
 	"peerDependencies": {
-		"stylelint": "^16.17.0"
+		"stylelint": "^16.17.0 || ^17.0.0"
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "29.0.0",
