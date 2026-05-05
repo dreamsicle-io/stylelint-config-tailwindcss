@@ -45,6 +45,9 @@ const stylelintConfig = {
 				"apply": {
 					prelude: "<any-value>+",
 				},
+				"plugin": {
+					prelude: "<string>",
+				},
 				...atRules,
 			},
 		},
