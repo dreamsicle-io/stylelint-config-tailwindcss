@@ -11,6 +11,13 @@
 
 @import "tailwindcss";
 
+/**
+ * Directives / plugin
+ *
+ * See: https://tailwindcss.com/docs/functions-and-directives#plugin-directive
+ */
+@plugin "@tailwindcss/forms";
+
 /*
  * Directives / theme
  *
