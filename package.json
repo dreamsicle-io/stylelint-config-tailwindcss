@@ -30,19 +30,21 @@
 		"build": "rollup -c",
 		"test": "stylelint -f verbose \"tests/**/*.css\"",
 		"fix": "npm test -- --fix",
-		"clean": "rm -rf dist; rm -rf syntax",
-		"clean-deps": "rm -rf node_modules package-lock.json"
+		"clean": "npm run clean:build; npm run clean:deps",
+		"clean:build": "rm -rf dist; rm -rf syntax",
+		"clean:deps": "rm -rf node_modules package-lock.json"
 	},
 	"peerDependencies": {
-		"stylelint": "^16.17.0 || ^17.0.0"
+		"stylelint": "^16.17.0 || ^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "29.0.0",
+		"@csstools/css-syntax-patches-for-csstree": "^1.1.16",
+		"@rollup/plugin-commonjs": "29.0.3",
 		"@rollup/plugin-json": "6.1.0",
 		"@rollup/plugin-node-resolve": "16.0.3",
-		"css-tree": "^3.1.0",
-		"rollup": "4.56.0",
-		"stylelint": "^17.0.0",
-		"stylelint-config-standard": "^40.0.0"
+		"css-tree": "^3.2.1",
+		"rollup": "4.67.5",
+		"stylelint": "^18.0.0",
+		"stylelint-config-standard": "^41.0.0"
 	}
 }
