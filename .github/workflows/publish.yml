@@ -24,7 +24,7 @@ jobs:
       # Checks-out repo.
       - name: Checkout Repo
         id: checkout_repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Sets the environment variables from the env.sh script.
       - name: Set Environment Variables
@@ -34,7 +34,7 @@ jobs:
       # Sets up Node.
       - name: Setup Node
         id: setup_node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: 'https://registry.npmjs.org'

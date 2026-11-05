@@ -19,7 +19,7 @@ jobs:
       # Checks-out repo.
       - name: Checkout Repo
         id: checkout_repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Sets the environment variables from the env.sh script.
       - name: Set Environment Variables
