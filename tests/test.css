@@ -42,8 +42,12 @@
  * Directives / source
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#source-directive
+ * See: https://tailwindcss.com/docs/detecting-classes-in-source-files#explicitly-registering-sources
  */
 @source "../path/to/file";
+@source not "../src/components/legacy";
+@source inline("underline");
+@source not inline("{hover:,focus:,}bg-red-{50,{100..900..100},950}");
 
 /*
  * Directives / reference
@@ -57,10 +61,76 @@
  * Directives / utility
  *
  * See: https://tailwindcss.com/docs/functions-and-directives#utility-directive
+ * See: https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities
  */
 
-@utility tab-4 {
-	tab-size: 4;
+@utility content-auto {
+	content-visibility: auto;
+}
+
+@utility tab-* {
+  tab-size: --value(--tab-size-*);
+}
+
+@utility tab-* {
+  tab-size: --value(integer);
+}
+
+@utility tab-* {
+  tab-size: --value([integer]);
+}
+
+@utility tab-* {
+  tab-size: --value("inherit", "initial", "unset");
+}
+
+@utility tab-* {
+  tab-size: --value(--tab-size-*, integer, [integer]);
+}
+
+@utility tab-* {
+  tab-size: --value([integer]);
+  tab-size: --value(integer);
+  tab-size: --value(--tab-size-*);
+}
+
+@utility tab-* {
+  tab-size: --value(integer, --default(4));
+}
+
+@utility tab-* {
+  tab-size: --value(integer);
+  line-height: --modifier(integer, --default(1));
+}
+
+@utility opacity-* {
+  opacity: --value([percentage]);
+  opacity: calc(--value(integer) * 0.1);
+  opacity: --value(--opacity-*);
+}
+
+@utility opacity-* {
+  opacity: calc(--value(integer) * 0.1);
+  opacity: --value(--opacity-*, [percentage]);
+}
+
+@utility inset-* {
+  inset: --spacing(--value(integer));
+  inset: --value([percentage], [length]);
+}
+
+@utility -inset-* {
+  inset: --spacing(--value(integer) * -1);
+  inset: calc(--value([percentage], [length]) * -1);
+}
+
+@utility text-* {
+  font-size: --value(--text-*, [length]);
+  line-height: --modifier(--leading-*, [length], [*]);
+}
+
+@utility aspect-* {
+  aspect-ratio: --value(--aspect-ratio-*, ratio, [ratio]);
 }
 
 @utility scrollbar-* {
@@ -69,12 +139,26 @@
 	}
 }
 
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @utility word-break-compat {
 	word-break: auto-phrase;
 
 	@supports not (word-break: auto-phrase) {
 		overflow-wrap: break-word;
 	}
+}
+
+@utility leading-* {
+	line-height: --value(--tab-size-*, integer, [integer]);
+}
+
+@utility leading-* {
+	line-height: --modifier(integer);
 }
 
 /*
@@ -131,6 +215,7 @@
  */
 
 .alpha-function {
+	color: --alpha(var(--color-lime-300) / 50%);
 	color: --alpha(black / 50%);
 	accent-color: --alpha(black / 50%);
 	caret-color: --alpha(black / 50%);
@@ -159,6 +244,7 @@
 }
 
 .alpha-function-in-shorthand {
+	background: --alpha(var(--color-lime-300) / 50%) url("bg.jpg");
 	background: --alpha(black / 50%) url("bg.jpg");
 	background: --alpha(black / 50%) url("bg.jpg") center;
 	background: --alpha(black / 50%) url("bg.jpg") 10px 20px;
@@ -167,6 +253,7 @@
 	background: --alpha(black / 50%) url("bg.jpg") no-repeat;
 	background: --alpha(black / 50%) url("bg.jpg") fixed;
 	background: --alpha(black / 50%) url("bg.jpg") padding-box content-box;
+	background: url("bg.jpg") no-repeat center / cover --alpha(var(--color-lime-300) / 50%);
 	background: url("bg.jpg") no-repeat center / cover --alpha(red / 50%);
 	background: url("bg.jpg") center / cover no-repeat fixed padding-box content-box --alpha(red / 50%);
 	background: url("bg.jpg") repeat, linear-gradient(to bottom, #fff, #ccc), --alpha(red / 50%);
@@ -188,9 +275,11 @@
 	text-emphasis: filled --alpha(black / 50%);
 	text-emphasis: filled double-circle --alpha(black / 50%);
 	text-emphasis: "*" --alpha(black / 50%);
+	text-emphasis: "*" --alpha(var(--color-lime-300) / 50%);
 }
 
 .alpha-function-in-functions {
+	backdrop-filter: drop-shadow(1px 2px --alpha(var(--color-lime-300) / 50%));
 	backdrop-filter: drop-shadow(1px 2px --alpha(black / 50%));
 	backdrop-filter: drop-shadow(1px 2px 6px --alpha(black / 50%));
 	background-image: linear-gradient(to bottom, --alpha(black / 50%), --alpha(black / 50%));
@@ -199,7 +288,8 @@
 }
 
 .alpha-function-in-vars {
-	--test-alpha-var: --alpha(black / 50%);
+	--test-alpha-var-1: --alpha(var(--color-lime-300) / 50%);
+	--test-alpha-var-2: --alpha(black / 50%);
 }
 
 /*
@@ -433,6 +523,7 @@
  */
 
 .spacing-and-alpha-functions-in-shorthand {
+	border: --spacing(2) solid --alpha(var(--color-lime-300) / 50%);
 	border: --spacing(2) solid --alpha(black / 50%);
 	border-top: --spacing(2) solid --alpha(black / 50%);
 	border-bottom: --spacing(2) solid --alpha(black / 50%);
@@ -447,9 +538,16 @@
 	outline: --spacing(2) solid --alpha(black / 50%);
 	column-rule: --spacing(2) solid --alpha(black / 50%);
 	text-decoration: underline --spacing(2) solid --alpha(black / 50%);
+	box-shadow: --spacing(1) --spacing(2) 0 --alpha(black / 50%);
+	box-shadow: 0 --spacing(1) --spacing(2) --alpha(black / 50%);
+	box-shadow: --spacing(1) 0 --spacing(2) --alpha(black / 50%);
+	text-shadow: --spacing(1) --spacing(2) 0 --alpha(black / 50%);
+	text-shadow: 0 --spacing(1) --spacing(2) --alpha(black / 50%);
+	text-shadow: --spacing(1) 0 --spacing(2) --alpha(black / 50%);
 }
 
 .spacing-and-alpha-functions-in-functions {
+	backdrop-filter: drop-shadow(--spacing(2) --spacing(2) --alpha(var(--color-lime-300) / 50%));
 	backdrop-filter: drop-shadow(--spacing(2) --spacing(2) --alpha(black / 50%));
 	backdrop-filter: drop-shadow(--spacing(2) --spacing(2) --spacing(2) --alpha(black / 50%));
 	backdrop-filter: drop-shadow(2px --spacing(2) --alpha(black / 50%));
