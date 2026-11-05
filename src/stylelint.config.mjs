@@ -19,8 +19,6 @@ const stylelintConfig = {
 				...types,
 			},
 			properties: {
-				"flood-color": "<tailwindcss-color>",
-				"lighting-color": "<tailwindcss-color>",
 				...properties,
 			},
 			atRules: {
@@ -28,7 +26,7 @@ const stylelintConfig = {
 					prelude: "inline | static",
 				},
 				"source": {
-					prelude: "<string>",
+					prelude: "not? [ <string> | inline( <string> ) ]",
 				},
 				"utility": {
 					prelude: "<any-value>",
@@ -39,11 +37,11 @@ const stylelintConfig = {
 				"custom-variant": {
 					prelude: "<any-value> | <any-value> <any-value>",
 				},
-				"reference": {
-					prelude: "<string>",
-				},
 				"apply": {
 					prelude: "<any-value>+",
+				},
+				"reference": {
+					prelude: "<string>",
 				},
 				...atRules,
 			},
