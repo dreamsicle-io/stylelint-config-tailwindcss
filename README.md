@@ -96,7 +96,7 @@ const stylelintConfig = {
 				 */
 				config: {
 					prelude: "<string>",
-				}
+				},
 				/**
 				 * @see https://tailwindcss.com/docs/functions-and-directives#plugin-directive
 				 */
