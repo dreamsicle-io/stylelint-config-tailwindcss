@@ -42,7 +42,7 @@ jobs:
       # Installs npm dependencies.
       - name: Install
         id: install
-        run: npm install
+        run: npm ci
 
       # Runs a build.
       - name: Build
